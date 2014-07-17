@@ -15,13 +15,38 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' - created at:' + tweet.created_at);
           $tweet.appendTo($body);
           index -= 1;
         }
 
-      });
+
+        setInterval(putTwits, 1000);
+
+        function putTwits() {
+          var $body = $('body');
+          $body.html('');
+          var index = streams.home.length - 1;
+          var numTweets = 25;
+          var loopCond = index - numTweets;
+          console.log("The index is: "+index);
+          console.log("the loop cond is: "+loopCond);
+
+          if ( loopCond < 0) {
+            loopCond = 0;
+          }
+          console.log("the loop cond is: "+loopCond);
+          while (index >= loopCond) {
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message + ' - created at:' + tweet.created_at);
+            $tweet.appendTo($body);
+            index -= 1;
+          }
+        }
+     });
 
     </script>
+  <div class="tweets"></div>
   </body>
 </html>
