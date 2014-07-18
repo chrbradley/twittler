@@ -51,7 +51,9 @@
 /* #Basic Styles
 ================================================== */
 	body {
-		background: #fff;
+    background:url('../images/twizzler4.png') top center no-repeat fixed;
+    background-size: cover;
+    background-position:
     font: 14px/21px "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 		color: #444;
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
@@ -243,173 +245,44 @@ input[type="button"]:hover {
 /* Sections
 ================================================== */
 /* Header */
-#header {
-  background:url('../images/twizzler4.png') top center no-repeat;
-  background-size: cover;
-  min-height: 680px;
-  width:100%;
-}
-#header .logo {
-  margin-top: 1em;
-}
-#header nav {
-  text-align:right;
-  margin-top:2em;
-}
-#header nav ul li {
-  display:inline-block;
-}
-#header nav ul li a {
-  color:#fff;
-  text-transform:uppercase;
-  text-decoration:none;
-  padding:0.75em 2em;
-}
-#header nav ul li a.btn {
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px; /* border radius */
-  border:2px solid #fff;
-}
-#header nav ul li a.btn:hover {
-  background:#fff;
-  color:#009be8;
-}
-#header .headertext {
+.headertext {
   margin-top: 10em;
   animation-delay: 0.7s;
   -webkit-animation-delay: 0.7s; /* Safari and Chrome */
+  /*position: fixed;*/
 }
-#header h1 {
+h1 {
   color:#fff;
   font-weight:300;
-  font-size:4.5em;
+  font-size:3.5em;
   line-height: 1;
-  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
   margin-bottom: 0.3em;
 }
-#header p {
+p {
   color:#d5d5d5;
   font-size:1.33em;
   line-height: 1.5;
-  text-shadow: 0 1px 2px rgba(0,0,0,.2);
+  text-shadow: 3 2px 2px rgba(0,0,0,.2);
   margin-bottom: 1.2em;
 }
-#header p strong {
+
+small {
+  color:#ffffff;
+  font-size:1.333em;
+  line-height: 1.25;
+  text-shadow: 3 2px 2px rgba(0,0,0,.2);
+  margin-bottom: 1em;
+}
+p strong {
   color:#fff;
 }
-/* Benefits */
-#benefits {
-  padding:4em 0 0;
-  text-align: center;
-}
-#benefits h2 {
-  color:#009be8;
-  font-weight: 300;
-}
-#benefits p {
-  color:#9d9d9d;
-  font-size:1.2em;
-}
-/* Pricing */
-#twitzs {
-  background:#009be8;
-  padding:4em 0;
-  text-align: center;
-}
-#twitzs h2 {
-  color:#fff;
-  font-weight:300;
-  text-shadow: 0 1px 2px rgba(0,0,0,.2);
-}
-#twitzs p {
-  color:#fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,.2);
-  font-size:1.2em;
-}
-.twitzbox {
-  background-color: #fff;
-  -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2);
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
-  box-shadow: 0 1px 3px rgba(0,0,0,.2);
-  margin-top:3em;
-  height:400px;
-  position: relative;
-}
-.twitzbox header {
-  background-color: #f1f1f1;
-  -moz-box-shadow: 0 1px 3px rgba(0,0,0,.2);
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.2);
-  box-shadow: 0 1px 3px rgba(0,0,0,.2);
-  padding:1em 0;
-  margin-bottom:2em;
-}
-.twitzbox header h3 {
-  color:#4d4d4d;
-  font-size:1.4em;
-  text-transform: uppercase;
-  margin:0;
-  font-weight: 600;
-}
-.twitzbox section h4 {
-  display:inline-block;
-  color:#009be8;
-  font-size: 6em;
-  font-weight: 900;
-  vertical-align: bottom;
-}
-.twitzbox section h4 span {
-  font-size:0.5em;
-  line-height: 1;
-  vertical-align: top;
-}
-#twitzs .twitzbox section p {
-  display:inline-block;
-  color:#9d9d9d;
-  text-shadow:none;
-  line-height: 1;
-  position:relative;
-  top:1em;
-  font-size:1.1em;
-}
-/* Testimonials */
-#testimonials {
-  padding:4em 0;
-  text-align: center;
-}
-
-#testimonials h2 {
-  color:#009be8;
-  font-weight: 300;
-}
-
-#testimonials p {
-  color:#9d9d9d;
-  font-size:1.2em;
-}
-
-#testimonials blockquote {
-  border:none;
-  text-align: left;
-  padding:0 1.5em 0 0;
-  font-size:1em;
-  color:#4d4d4d;
-  line-height: 1.4;
+.tweets {
   margin-top: 1em;
 }
-
-#testimonials .avatar img {
-  border-radius: 50%;
-  float:left;
-  display:inline;
-  margin-right:1em;
-  width:65px;
-  height:65px;
+.fixed {
+  position: fixed;
 }
+.twitz{
 
-#testimonials .avatar p {
-  text-align: left;
-  padding-top:1.5em;
-  color:#5d5d5d;
-  font-weight: 900;
 }

@@ -42,59 +42,48 @@
   <!--========================================-->
   <script src="jquery.js"></script>
   <script src="data_generator.js"></script>
+  <script src="jquery-dateFormat-min.js"></script>
 
 </head>
 <body>
-  <script>
+<script>
 
-    $(document).ready(function(){
-      setInterval(putTwits, 1000);
-      function putTwits() {
-        var $list = $('.list');
-        var index = streams.home.length - 1;
-        var numTweets = 5;
-        var loopCond = index - numTweets;
-        console.log("The index is: "+index);
-        console.log("the loop cond is: "+loopCond);
+  $(document).ready(function(){
 
-        if ( loopCond < 0) {
-          loopCond = 0;
-        }
-        console.log("the loop cond is: "+loopCond);
-        while (index >= loopCond) {
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' - created at:' + tweet.created_at);
-          $list.append($tweet);
-          index -= 1;
-        }
+    setInterval(putTwits, 3000);
+
+    function putTwits() {
+      var index = streams.home.length - 1;
+      var numTweets = 20;
+      var loopCond = index - numTweets;
+
+      if ( loopCond < 0) {
+        loopCond = 0;
       }
-    });
 
-  </script>
-<!--header-->
-<div id="header" class="animated fadeInDown">
+      $('.tweets').empty();
+      while (index >= loopCond) {
+        var tweet = streams.home[index];
+        var $tweet = $('<small class="twitz"></small><br>');
+        var $user = tweet.user;
+        var $message = tweet.message;
+        var $time = jQuery.format.prettyDate(tweet.created_at);
+        $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + jQuery.format.prettyDate(tweet.created_at));
+        $('.tweets').append($tweet);
+        index -= 1;
+      }
+    }
 
-  <!--<div class="container">-->
-    <!--<div class="three columns">-->
-      <!--<div class="logo">-->
-        <!--<a href="#"><img src="" alt="Twittzzler" /></a>-->
-      <!--</div>-->
-    <!--</div>-->
 
-    <!--<div class="thirteen-columns">-->
-      <!--<nav>-->
-        <!--<ul>-->
-          <!--<li><a href="#">Sign In</a></li>-->
-          <!--<li><a class="btn" href="#">Sign Up Now!</a></li>-->
-        <!--</ul>-->
-      <!--</nav>-->
-    <!--</div>-->
-  <!--</div>-->
+  });
 
+</script>
   <div class="container">
 
-    <div class="nine columns headertext animated fadeInDown">
+    <!--<div class="nine columns headertext animated fadeInDown">-->
+    <!--<div class="fixed">-->
+    <div class="nine columns headertext">
+
       <h1>See what happens when <strong>Twitter hooks-up with Twizzler</strong></h1>
 
       <div class="container">
@@ -110,128 +99,18 @@
 
         </div>
       </div>
-     </div>
 
-    <!--<div class="seven columns">-->
-      <!--<div class="container">-->
-        <!--<p> this is where the twitzs will go.</p>-->
-        <!--<div class="list"></div>-->
-      <!--</div>-->
-    <!--</div>-->
-
-  </div>
-</div>
-
-<!--benefits-->
-<div id="benefits">
-  <!--<div class="container">-->
-
-    <!--<div class="twelve columns offset-by-two">-->
-      <!--<h2>Why Twittzzler?</h2>-->
-      <!--<p>Can you think of anything that goes better with tweets than licorice? No! You Can't!</p>-->
-    <!--</div>-->
-
-    <!--<div class="fourteen columns offset-by-one">-->
-      <!--<img class="scale-with-grid" src="images/app.png" alt="Jottly's Web Application" />-->
-    <!--</div>-->
-
-   <!--</div>-->
-  <div class="container">
-    <p> this is where the twitzs will go.</p>
-    <div class="list"></div>
-  </div>
-</div>
-
-<!--twitzs-->
-<div id="twitzs">
-
-  <div class="container">
-
-    <div class="twelve columns offset-by-two">
-      <h2>How much will it cost me?</h2>
-      <p>Nada, Nothing, Zip, Zilch, Zero, A Big Fat Goose Egg!</p>
     </div>
+     <!--</div>-->
 
-    <div class="one-third column">
-      <div class="twitzbox">
-        <header>
-          <h3>Individuals &amp; Family</h3>
-        </header>
-        <section>
-          <h4><span>$</span>5</h4>
-          <p>per month<br/>/per user</p>
-        </section>
-      </div>
-     </div>
-
-    <div class="one-third column">
-      <div class="twitzbox">
-        <header>
-          <h3>Individuals &amp; Family</h3>
-        </header>
-        <section>
-          <h4><span>$</span>5</h4>
-          <p>per month<br/>/per user</p>
-        </section>
-      </div>
-    </div>
-
-    <div class="one-third column">
-      <div class="twitzbox">
-        <header>
-          <h3>Individuals &amp; Family</h3>
-        </header>
-        <section>
-          <h4><span>$</span>5</h4>
-          <p>per month<br/>/per user</p>
-        </section>
+    <div class="seven columns">
+      <div class="tweets">
       </div>
     </div>
 
   </div>
 
-</div>
 
-<!--testimonials-->
-<div id="testimonials">
-  <div class="container">
-
-    <div class="twelve columns offset-by-two">
-
-      <h2>Who Twitzs?</h2>
-      <p>Anybody who is anybody.</p>
-    </div>
-
-    <div class="one-third column">
-      <blockquote>
-        “Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
-      </blockquote>
-      <div class="avatar">
-        <img src="" alt="Danny S." />
-        <p>Danny S.</p>
-      </div>
-    </div>
-
-    <div class="one-third column">
-      <blockquote>
-        “Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
-      </blockquote>
-      <div class="avatar">
-        <img src="" alt="Jonathan M."  />
-        <p>Jonathan M.</p>
-      </div>
-    </div>
-
-    <div class="one-third column">
-      <blockquote>
-        “Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
-      </blockquote>
-      <div class="avatar">
-        <img src="" alt="Chloe P."  />
-        <p>Chloe P.</p>
-      </div>
-    </div>
-</div>
 
 </body>
 </html>
