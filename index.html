@@ -1,40 +1,116 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
-  </head>
-  <body>
-    <script>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
 
-      $(document).ready(function(){
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Twittzzler</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-        setInterval(putTwits, 1000);
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        function putTwits() {
-          var $body = $('body');
-          $body.html('');
-          var index = streams.home.length - 1;
-          var numTweets = 25;
-          var loopCond = index - numTweets;
-          console.log("The index is: "+index);
-          console.log("the loop cond is: "+loopCond);
+  <!-- Google Fonts
+================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
-          if ( loopCond < 0) {
-            loopCond = 0;
-          }
-          console.log("the loop cond is: "+loopCond);
-          while (index >= loopCond) {
-            var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + ' - created at:' + tweet.created_at);
-            $tweet.appendTo($body);
-            index -= 1;
-          }
-        }
-     });
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+  <link rel="stylesheet" href="stylesheets/animate.css">
 
-    </script>
-  <div class="tweets"></div>
-  </body>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+  <!--Scripts-->
+  <!--========================================-->
+  <script src="jquery.js"></script>
+  <script src="data_generator.js"></script>
+  <script src="jquery-dateFormat-min.js"></script>
+
+</head>
+<body>
+<script>
+
+  $(document).ready(function(){
+
+    setInterval(putTwits, 3000);
+
+    function putTwits() {
+      var index = streams.home.length - 1;
+      var numTweets = 20;
+      var loopCond = index - numTweets;
+
+      if ( loopCond < 0) {
+        loopCond = 0;
+      }
+
+      $('.tweets').empty();
+      while (index >= loopCond) {
+        var tweet = streams.home[index];
+        var $tweet = $('<small class="twitz"></small><br>');
+        var $user = tweet.user;
+        var $message = tweet.message;
+        var $time = jQuery.format.prettyDate(tweet.created_at);
+        $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + jQuery.format.prettyDate(tweet.created_at));
+        $('.tweets').append($tweet);
+        index -= 1;
+      }
+    }
+
+
+  });
+
+</script>
+  <div class="container">
+
+    <!--<div class="nine columns headertext animated fadeInDown">-->
+    <!--<div class="fixed">-->
+    <div class="nine columns headertext">
+
+      <h1>See what happens when <strong>Twitter hooks-up with Twizzler</strong></h1>
+
+      <div class="container">
+        <div class="row">
+
+          <div class="five columns alpha">
+            <input type="text" placeholder="Enter your Twitz"/>
+           </div>
+
+          <div class="four columns omega">
+            <button type="submit">Twitz</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+     <!--</div>-->
+
+    <div class="seven columns">
+      <div class="tweets">
+      </div>
+    </div>
+
+  </div>
+
+
+
+</body>
 </html>
